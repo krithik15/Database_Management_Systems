@@ -1,5 +1,8 @@
-# Ass
-#E Create Boat DB
+# Assignment 
+## Schema Diagram
+![image](https://user-images.githubusercontent.com/91019132/228002386-4f4924a7-d8b8-4a90-bb9f-2eeb7833f047.png)
+
+## Create Boat DB
 ```sql:
 CREATE TABLE boat(
 	boat_no VARCHAR(10) PRIMARY KEY,
@@ -10,7 +13,7 @@ CREATE TABLE boat(
 	boat_color VARCHAR(10)
 );
 ```
-# Create Sailors DB
+## Create Sailors DB
 ```sql:
 CREATE TABLE sailors(
 	sailors_no NUMBER(10) PRIMARY KEY,
@@ -19,7 +22,7 @@ CREATE TABLE sailors(
 	sailors_dob VARCHAR(10)
 );
 ```
-# Create tourists DB
+## Create tourists DB
 ```sql:
 CREATE TABLE tourists(
 	tourists_no NUMBER(10) PRIMARY KEY,
@@ -29,7 +32,7 @@ CREATE TABLE tourists(
 	tourists_phone NUMBER(10)
 );
 ```
-# Create Reservation DB
+## Create Reservation DB
 ```sql:
 CREATE TABLE Reservation(
 	boat_no VARCHAR(10),
