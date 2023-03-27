@@ -1,4 +1,5 @@
-# Create Boat DB
+# Ass
+#E Create Boat DB
 ```sql:
 CREATE TABLE boat(
 	boat_no VARCHAR(10) PRIMARY KEY,
@@ -43,4 +44,31 @@ CREATE TABLE Reservation(
 	CONSTRAINT FK_tourists_no FOREIGN KEY (tourists_no) REFERENCES Tourists(tourists_no),
 	CONSTRAINT C_date CHECK ((date_of_sail - date_of_reserve)<12)
 );
+```
+
+## insert Data into Table
+``sql:
+INSERT INTO boat VALUES('B1','boat1','LUX',3,400,'red');
+INSERT INTO boat VALUES('B2','boat2','CAR',3,300,'white');
+INSERT INTO boat VALUES('B3','boat3','CRU',3,200,'blue');
+INSERT INTO boat VALUES('B4','boat4','CRU',3,440,'pink');
+INSERT INTO boat VALUES('B5','boat5','LUX',3,480,'orange');
+
+INSERT INTO sailors VALUES(10,'sam','A','2003-02-13');
+INSERT INTO sailors VALUES(20,'som','B','2007-12-23');
+INSERT INTO sailors VALUES(30,'ram','C','2002-06-03');
+INSERT INTO sailors VALUES(40,'ramesh','B','2014-04-16');
+INSERT INTO sailors VALUES(50,'suresh','A','2004-09-11');
+
+INSERT INTO tourists VALUES(100,'magesh','chennai','2003-03-13',1234506789);
+INSERT INTO tourists VALUES(200,'mega','chennai','2003-03-13',9870654321);
+INSERT INTO tourists VALUES(300,'karthik','chennai','2003-03-13',6846207512);
+INSERT INTO tourists VALUES(400,'lakshmi','chennai','2003-03-13',9361850374);
+INSERT INTO tourists VALUES(500,'rahul','chennai','2003-03-13',1856233425);
+INSERT INTO tourists VALUES(600,'raghu','chennai','2003-03-13',8769786794);
+```
+## insert Reservation DB data
+```sql:
+INSERT INTO Reservation values('B2',10,to_date('2023-10-12','YYYY-MM-DD'),100,to_date('2023-10-29','YYYY-MM-DD'),3);
+INSERT INTO Reservation values('B3',20,to_date('2023-10-12','YYYY-MM-DD'),100,to_date('2023-10-13','YYYY-MM-DD'),3);
 ```
