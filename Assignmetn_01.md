@@ -1,4 +1,4 @@
-# Create DB
+# Create Boat DB
 ```sql:
 CREATE TABLE boat(
 	boat_no VARCHAR(10) PRIMARY KEY,
@@ -8,14 +8,18 @@ CREATE TABLE boat(
 	boat_price NUMBER(10),
 	boat_color VARCHAR(10)
 );
-
+```
+# Create Sailors DB
+```sql:
 CREATE TABLE sailors(
 	sailors_no NUMBER(10) PRIMARY KEY,
 	sailors_name VARCHAR(10),
 	sailors_rating varchar(10),
 	sailors_dob VARCHAR(10)
 );
-
+```
+# Create tourists DB
+```sql:
 CREATE TABLE tourists(
 	tourists_no NUMBER(10) PRIMARY KEY,
 	tourists_name VARCHAR(10),
@@ -23,7 +27,9 @@ CREATE TABLE tourists(
 	tourists_dob VARCHAR(10),
 	tourists_phone NUMBER(10)
 );
-
+```
+# Create Reservation DB
+```sql:
 CREATE TABLE Reservation(
 	boat_no VARCHAR(10),
 	sailors_no NUMBER(10),
