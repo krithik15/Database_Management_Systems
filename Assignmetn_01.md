@@ -47,7 +47,7 @@ CREATE TABLE Reservation(
 ```
 
 ## insert Data into Table
-``sql:
+```sql:
 INSERT INTO boat VALUES('B1','boat1','LUX',3,400,'red');
 INSERT INTO boat VALUES('B2','boat2','CAR',3,300,'white');
 INSERT INTO boat VALUES('B3','boat3','CRU',3,200,'blue');
@@ -66,8 +66,11 @@ INSERT INTO tourists VALUES(300,'karthik','chennai','2003-03-13',6846207512);
 INSERT INTO tourists VALUES(400,'lakshmi','chennai','2003-03-13',9361850374);
 INSERT INTO tourists VALUES(500,'rahul','chennai','2003-03-13',1856233425);
 INSERT INTO tourists VALUES(600,'raghu','chennai','2003-03-13',8769786794);
+
 ```
+
 ## insert Reservation DB data
+
 ```sql:
 INSERT INTO Reservation values('B2',10,to_date('2023-10-12','YYYY-MM-DD'),100,to_date('2023-10-29','YYYY-MM-DD'),3);
 INSERT INTO Reservation values('B3',20,to_date('2023-10-12','YYYY-MM-DD'),100,to_date('2023-10-13','YYYY-MM-DD'),3);
