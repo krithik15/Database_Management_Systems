@@ -163,17 +163,19 @@ SET salary = salary * 1,15;
 SELECT * FROM sailor;
 
 REM: Delete the sailor(s) who was born before 1985.(21)
+DELETE FROM sailors
+WHERE EXTRACT(YEAR FROM sailors_dob) = 1985;
 
+REM: Display the sailor relation.(22)
+SELECT * FROM sailors;
 
-22. Display the sailor relation.
-23. Discard the most recent update operations (rollback).
+REM: Discard the most recent update operations (rollback).(23)
+ROLLBACK TO SAVEPOINT s2;
+SELECT * FROM sailors;
+
 24. Commit the changes.
-
-INSERT INTO  sailors VALUES('S900','Sam','A','13-DEC-92',15000);
+COMMIT;
 SELECT * FROM sailors;
 ROLLBACK TO SAVEPOINT s1;
-
-
-
 
 
