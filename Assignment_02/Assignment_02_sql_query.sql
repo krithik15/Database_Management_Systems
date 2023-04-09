@@ -135,9 +135,43 @@ GROUP BY sailors_rating
 HAVING SUM(salary) >25000 ;
 
 REM: Display the rating and salary of the lowest paid sailor in each rating. Exclude anyone whose rating is not known. Exclude any groups where the minimum salary is $15000 or less. Sort the output in descending order of salary. (16)
+SELECT sailors_rating, MIN(salary) AS lowest_salary
+FROM sailors
+WHERE sailors_rating IS NOT NULL
+GROUP BY sailors_rating
+HAVING MIN(salary) > 15000
+ORDER BY lowest_salary DESC;
+
+REM: Using Update, Delete, TCL Statements(17)
+REM: Mark an intermediate point in the transaction (savepoint).
+SELECT * FROM sailors;
+SAVEPOINT s1;
+
+REM: Update the rating, salary of S800 to A, 10000 respectively.(18)
+UPDATE sailors 
+SET salary = 10000, sailors_rating = 'A'
+WHERE sailors_id='S800';
+SELECT * FROM sailors;
+
+REM: Mark an intermediate point in the transaction (savepoint).(19)
+SELECT * FROM sailors;
+SAVEPOINT s2;
+
+REM: Update the salary of all sailors with a hike by 5%.(20)
+UPDATE sailors 
+SET salary = salary * 1,15;
+SELECT * FROM sailor;
+
+REM: Delete the sailor(s) who was born before 1985.(21)
 
 
+22. Display the sailor relation.
+23. Discard the most recent update operations (rollback).
+24. Commit the changes.
 
+INSERT INTO  sailors VALUES('S900','Sam','A','13-DEC-92',15000);
+SELECT * FROM sailors;
+ROLLBACK TO SAVEPOINT s1;
 
 
 
