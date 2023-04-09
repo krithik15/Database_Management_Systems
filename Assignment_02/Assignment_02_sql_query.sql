@@ -1,20 +1,7 @@
 
-SPOOL D:\DBMS-lab\Assignment_01\Assignment_02.sql;
+SPOOL D:\DBMS-lab\Assignment_02\Assignment_02.sql;
 REM: Drop all TABLES
-DROP TABLE Reservation;
-DROP TABLE boat;
 DROP TABLE sailors;
-DROP TABLE tourists;
-
-REM: CREATE TABLE WITH ALL CONSTRAINT
-CREATE TABLE boat(
-    boat_id VARCHAR(10) PRIMARY KEY CHECK(boat_id LIKE 'B%'), -- - Ensure that boat id begins with B (3.1)
-    boat_name VARCHAR(10),
-    boat_type VARCHAR(10) CHECK(boat_type in ('LUX','CAR','CRU')), -- - The type of boat can be LUX for Luxurious, CAR for Caravan, CRU for Cruiser (2)
-    max_capa NUMBER(10),
-    boat_price NUMBER(10),
-    boat_color VARCHAR(10)
-);
 
 CREATE TABLE sailors(
     sailors_id VARCHAR(10) PRIMARY KEY CHECK(sailors_id LIKE 'S%'), -- - Ensure that sailors id begins with S (3.2)
@@ -22,41 +9,6 @@ CREATE TABLE sailors(
     sailors_rating varchar(10) CHECK(sailors_rating in ('A','B','C','D')), -- - The rating for a sailor could be A, B or C. (4)
     sailors_dob DATE
 );
-
-CREATE TABLE tourists(
-    tourists_id VARCHAR(10) PRIMARY KEY CHECK(tourists_id LIKE 'T%'), -- - Ensure that tourists id begins with T (3.3)
-    tourists_name CHAR(10),
-    tourists_address VARCHAR(10),
-    tourists_dob DATE,
-    tourists_phone NUMBER(10) UNIQUE-- - The phone number of the tourists should differ from each other.(5)
-);
-
-
-CREATE TABLE Reservation(
-    boat_id VARCHAR(10),
-    sailors_id VARCHAR(10),
-    date_of_sail DATE,
-    tourists_id VARCHAR(10) NOT NULL,
-    date_of_reserve DATE,
-    no_of_per NUMBER(10),
-    CONSTRAINT PK_Person PRIMARY KEY (boat_id ,sailors_id, date_of_sail ),
-    CONSTRAINT FK_boat_id FOREIGN KEY (boat_id) REFERENCES boat(boat_id),
-    CONSTRAINT FK_sailors_id FOREIGN KEY (sailors_id) REFERENCES sailors(sailors_id),
-    CONSTRAINT FK_tourists_id FOREIGN KEY (tourists_id) REFERENCES tourists(tourists_id),
-    CONSTRAINT C_date CHECK ((date_of_sail - date_of_reserve) > 12) -- -  Advance booking can be done ahead of 12 days (6)
-);
-
--- - tourists
-INSERT INTO tourists VALUES('T202','mega','chennai','02-JAN-2003',9870654321);
-INSERT INTO tourists VALUES('T303','karthik','chennai','13-APR-2003',9870654322);
-
--- - Reservation
-INSERT INTO Reservation VALUES('B3','S100','15-JUN-2023', 'T202', '01-MAY-2023', 3);
-INSERT INTO Reservation VALUES('B3','S100','22-JAN-2023', 'T202', '08-JAN-2023', 3);
-
--- - boat 
-INSERT INTO boat VALUES('B1','boat1','LUX',3,400,'red');
-INSERT INTO boat VALUES('B3','boat3','CRU',3,200,'blue');
 
 ALTER TABLE sailors
 ADD salary NUMBER(8);
@@ -178,4 +130,4 @@ COMMIT;
 SELECT * FROM sailors;
 ROLLBACK TO SAVEPOINT s1;
 
-
+SPOOL stop;
