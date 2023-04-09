@@ -58,6 +58,9 @@ INSERT INTO Reservation VALUES('B3','S100','22-JAN-2023', 'T202', '08-JAN-2023',
 INSERT INTO boat VALUES('B1','boat1','LUX',3,400,'red');
 INSERT INTO boat VALUES('B3','boat3','CRU',3,200,'blue');
 
+ALTER TABLE sailors
+ADD salary NUMBER(8);
+
 -- - sailor
 INSERT INTO sailors VALUES('S100','Raman','A','01-OCT-80', 27000);
 INSERT INTO sailors VALUES('S200','Krishna','B','04-JUL-78',21000);
