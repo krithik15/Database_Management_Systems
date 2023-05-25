@@ -22,6 +22,6 @@ END;
 DECLARE 
 	x NUMBER(3) := 10;
 BEGIN
-	dbms_output.put_line('Value of X : ' || x);
+	dbms_output.put_line('Value of X : ' || x || '.');
 END;
 ```
