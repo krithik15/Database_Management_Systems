@@ -1,16 +1,16 @@
 # Print data.
 This query is use to display output in terminal.
-```sql:
+```sql
 SET SERVEROUTPUT ON;
 ```
 ## Type 01
-```sql:
+```sql
 BEGIN
 	dbms_output.put_line('Hello World!...');
 END;
 ```
 ## Type 02
-```sql:
+```sql
 DECLARE 
 	x NUMBER(3);
 BEGIN
