@@ -68,8 +68,8 @@ BEGIN
         	dbms_output.put_line('FRIDAY');
         WHEN 'SAT' THEN
         	dbms_output.put_line('SATURDAY');
-		ELSE 
+	ELSE 
             dbms_output.put_line('Error in input...');
-		END CASE;	
+	END CASE;	
 END;
 ```
