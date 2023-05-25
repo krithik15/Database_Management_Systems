@@ -31,7 +31,22 @@ BEGIN
    dbms_output.put_line('Employee Name: ' || emp_name);
    dbms_output.put_line('Employee Salary: ' || emp_salary);
 END;
+
 ```
+## %ROWTYPE
+By using %ROWTYPE, we don't need to explicitly declare variables for each column in the table. 
+```sql 
+DECLARE
+   emp_rec employees%ROWTYPE;
+BEGIN
+   SELECT *
+   INTO emp_rec -- By using %ROWTYPE, we don't need to explicitly declare variables for each column in the table. 
+   FROM employees
+   WHERE employee_id = 100;
 
-
+   dbms_output.put_line('Employee ID: ' || emp_rec.employee_id);
+   dbms_output.put_line('Last Name: ' || emp_rec.last_name);
+   dbms_output.put_line('Salary: ' || emp_rec.salary);
+END;
+```
 
