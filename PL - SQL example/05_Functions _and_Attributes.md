@@ -1,3 +1,23 @@
+# PL/SQL Functions 
+```sql
+CREATE FUNCTION calculate_square(num NUMBER) RETURN NUMBER
+IS
+    result NUMBER;
+BEGIN
+    result := num * num;
+    RETURN result;
+END;
+```
+call the Function 
+```sql
+DECLARE
+    square_result NUMBER;
+BEGIN
+    square_result := calculate_square(15); -- Calling the function with argument 5
+    dbms_output.put_line('Square Result: ' || square_result);
+END;
+```
+
 # PL/SQL Attributes
 PL/SQL variables and cursors have attributes, which are properties that let you reference the
 datatype and structure of an item without repeating its definition. A percent sign (%) serves as the
