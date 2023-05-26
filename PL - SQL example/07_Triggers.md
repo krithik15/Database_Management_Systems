@@ -39,3 +39,5 @@ now try with this Insert Query (it give the trigger error)
 INSERT INTO students VALUES (1, 'Sam', 'Computer Science', 110, 78, 95);
 UPDATE students SET mark1 = 90, mark2 = 20, mark3 = 103 WHERE sid=2;
 ```
+## Trigger chain
+Trigger T1 could cause trigger T2 to fire, which could cause trigger T3 and so on (a trigger chain).
