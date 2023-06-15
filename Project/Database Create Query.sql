@@ -1,11 +1,11 @@
 -- - Date : 09-JAN-90 (DD-MON-YY)
-CREATE TABLE AUTHENDACATION(
+CREATE TABLE LOGIN(
     userId VARCHAR2(10),
     userName VARCHAR2(30),
     passwd VARCHAR2(20),
-    accountType VARCHAR2(8) CONSTRAINT CK_AUTHENDACTION_AccountType CHECK(accountType IN ('Staff','Member')),
-    accountStatus NUMBER CONSTRAINT CK_AUTHENDACTION_AccountStatus CHECK(accountStatus IN(1,0)), -- - 0 for unblock, 1 for block
-    CONSTRAINT PK_AUTHENDACATION_UserID PRIMARY KEY(userId)
+    accountType VARCHAR2(8) CONSTRAINT CK_LOGIN_AccountType CHECK(accountType IN ('Staff','Member')),
+    accountStatus NUMBER CONSTRAINT CK_LOGIN_AccountStatus CHECK(accountStatus IN(1,0)), -- - 0 for unblock, 1 for block
+    CONSTRAINT PK_LOGIN_UserID PRIMARY KEY(userId)
 );
 
 CREATE TABLE ADDRESS(
@@ -25,7 +25,7 @@ CREATE TABLE MEMBER (
     mailid VARCHAR2(30) CONSTRAINT NN_MEMBER_MailID NOT NULL,
     membershipStatus NUMBER CONSTRAINT CK_MEMBER_MembershipStatus CHECK(membershipStatus IN (0, 1)),-- - 0 for normal, 1 for Pro.
     CONSTRAINT FK_MEMBERtoADDRESS_MemberID FOREIGN KEY (MemberID) REFERENCES ADDRESS(MemberID),
-    CONSTRAINT FK_MEMBERtoAUTHENDACATION_MemberID FOREIGN KEY (MemberID) REFERENCES AUTHENDACATION(userId)
+    CONSTRAINT FK_MEMBERtoLOGIN_MemberID FOREIGN KEY (MemberID) REFERENCES LOGIN(userId)
 );
 
 
@@ -37,7 +37,7 @@ CREATE TABLE STAFF(
     position VARCHAR2(10),
     salary NUMBER(10),
     dateofjoin DATE,
-    CONSTRAINT FK_STAFF_StaffID FOREIGN KEY (StaffID) REFERENCES AUTHENDACATION(userId)
+    CONSTRAINT FK_STAFF_StaffID FOREIGN KEY (StaffID) REFERENCES LOGIN(userId)
 );
 
 
@@ -94,12 +94,12 @@ DROP TABLE BOOKS;
 DROP TABLE STAFF;
 DROP TABLE MEMBER;
 DROP TABLE ADDRESS;
-DROP TABLE AUTHENDACATION;
+DROP TABLE LOGIN;
 
--- AUTHENDACATION
-INSERT INTO AUTHENDACATION (userId, userName, passwd, accountType, accountStatus)
+-- LOGIN
+INSERT INTO LOGIN (userId, userName, passwd, accountType, accountStatus)
 VALUES ('U001', 'John Doe', 'password123', 'Member', 0);
-INSERT INTO AUTHENDACATION (userId, userName, passwd, accountType, accountStatus)
+INSERT INTO LOGIN (userId, userName, passwd, accountType, accountStatus)
 VALUES ('S001', 'Jane Smith', 'staff123', 'Staff', 0);
 
 -- ADDRESS
